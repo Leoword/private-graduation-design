@@ -4,6 +4,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
+const {errorHandler} = require('error-standardize');
 
 const app = module.exports = express();
 const router = require('./route');
@@ -18,3 +19,4 @@ app.use(session({
 }));
 
 app.use('/api', router);
+app.use(errorHandler());

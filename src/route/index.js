@@ -13,11 +13,14 @@ loadHandlerFromDir(HANDLER_PATH);
 
 const {
 	signIn,
-	signUp
+	touristSignUp,
+	businessSignUp
 } = handlerStore;
 
-router.post('/signup', signUp);
 
+
+router.post('/signup/tourist', touristSignUp);
+router.post('/signup/business', businessSignUp);
 router.post('/signin', signIn);
 
 module.exports = router;
