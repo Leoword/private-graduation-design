@@ -3,24 +3,25 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 
-import Signin from './Signin.vue';
-import SignUp from './Signup-router.vue';
-import Tourist from './Tourist-signup.vue';
-import Business from './Business-signup.vue';
-import touristMainPage from './tourist.vue';
-import Commercial from './commercial.vue';
+import Signin from './component/Signin.vue';
+import Login from './login.vue';
+import Tourist from './component/Tourist-signup.vue';
+import Business from './component/Business-signup.vue';
+import touristMainPage from './controlpanel/tourist.vue';
+import Commercial from './controlpanel/commercial.vue';
+import Administrator from './controlpanel/administrator.vue';
 
 Vue.use(Router);
 
 export default new Router({
 	routes: [
 		{
-			path: '/signin',
-			component: Signin
+			path: '/login',
+			component: Login
 		},
 		{
-			path: '/signup',
-			component: SignUp
+			path: '/signin',
+			component: Signin
 		},
 		{
 			path: '/signup/tourist',
@@ -37,6 +38,10 @@ export default new Router({
 		{
 			path: '/business',
 			component: Commercial
+		},
+		{
+			path: '/administrator',
+			component: Administrator
 		}
 	]
 });

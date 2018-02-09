@@ -1,12 +1,10 @@
 'use strict';
 
 const path = require('path');
-const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-	devtool: 'inline-source-map',
 	entry: {
 		index: path.resolve(__dirname, '../app/index.js')
 	},
@@ -14,14 +12,6 @@ module.exports = {
 		filename: '[name].js',
 		path:path.resolve(__dirname, '../dist'),
 		publicPath: '/'		
-	},
-	devServer: {
-		contentBase: path.resolve(__dirname, '../dist'),
-		port: 2000,
-		hot: true,
-		proxy: {
-			'/api': 'http://localhost:4000'
-		}
 	},
 	module: {
 		rules: [
@@ -57,7 +47,6 @@ module.exports = {
 			filename: 'index.html',
 			template: path.resolve(__dirname, './index.html')
 		}),
-		new webpack.HotModuleReplacementPlugin(),
 		new ExtractTextPlugin('styles.[hash:5].css')
-	]	
+	]		
 };

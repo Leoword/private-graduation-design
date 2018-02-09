@@ -67,7 +67,7 @@ import {
 	PASSWORD,
 	EMAIL,
 	validate
-} from './mixin';
+} from '../mixin';
 
 export default {
 	name: "tourist-signup",
@@ -132,18 +132,5 @@ export default {
 </script>
 
 <style>
-.signUp {
-	width:550px;
-	margin-top:50px;
-	background:lightgray;
-	padding:20px;
-}
-.signUp .row {
-	margin:15px;
-	font-size:20px;
-}
-.signUp span {
-	color:lightsalmon;
-	font-size:15px;
-}
+
 </style>

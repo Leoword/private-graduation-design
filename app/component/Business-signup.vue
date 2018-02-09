@@ -88,7 +88,7 @@ import {
 	REALNAME,
 	ADDRESS,
 	validate
-} from './mixin';
+} from '../mixin';
 
 export default {
 	name: "business-signup",
