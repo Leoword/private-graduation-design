@@ -1,7 +1,7 @@
 <template>
-	<div class="card text-center" id="signIn">
-			<h2 class="card-header">登录</h2>
-			<div class="form-group row">
+	<div class="text-center" id="signIn">
+		<div class="form-group">
+			<div class="row">
 				<label class="col-sm-4 col-form-label">
 					用户名:
 				</label>
@@ -9,7 +9,7 @@
 					<input type="text" class="form-control" v-model="user.username" @focus="hidden()" required>
 				</div>
 			</div>
-			<div class="form-group row">
+			<div class="row">
 				<label class="col-sm-4 col-form-label">
 					密码：
 				</label>
@@ -17,21 +17,33 @@
 					<input type="text" class="form-control" v-model="user.password" @focus="hidden()" required>
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-sm-3"></div>
-				<div class="col-sm-3">
-					<button class="btn btn-outline-primary" @click="userSignIn(user)">登录</button>
-				</div>
-				<div class="col-sm-1"></div>
-				<div class="col-sm-3">
-					<router-link tag="button" class="btn btn-outline-primary" :to="`/signin/${type}`">注册</router-link>
-					<p>{{type}}</p>
-				</div>
-			</div>
-			<div class="row">
-				<p class="alert alert-info" v-if="isPromptShow">{{prompt}}</p>
-			</div>
 		</div>
+		<div class="custom-control custom-radio custom-control-inline">
+			<input type="radio" name="identify" value="tourist" v-model="user.type" id="tourist" class="custom-control-input">
+			<label class="custom-control-label" for="tourist">游客</label>
+		</div>
+		<div class="custom-control custom-radio custom-control-inline">
+			<input type="radio" name="identify" value="business" v-model="user.type" id="business" class="custom-control-input">
+			<label class="custom-control-label" for="business">商家</label>
+		</div>
+		<div class="custom-control custom-radio custom-control-inline">
+			<input type="radio" name="identify" value="administator" v-model="user.type" id="administator" class="custom-control-input">
+			<label class="custom-control-label" for="administator">管理员</label>
+		</div>
+		<div class="row">
+			<div class="col-sm-3"></div>
+			<div class="col-sm-3">
+				<button class="btn btn-outline-primary" @click="userSignIn(user)">登录</button>
+			</div>
+			<div class="col-sm-3">
+				<button class="btn btn-outline-primary" @click="cancelInput(user)">重置</button>
+			</div>
+			<div class="col-sm-3"></div>
+		</div>
+		<div class="row">
+			<p class="alert alert-warning" v-if="isPromptShow">{{prompt}}</p>
+		</div>
+	</div>
 </template>
 
 <script>
@@ -39,7 +51,6 @@ import axios from 'axios';
 
 export default {
 	name: 'sign-in',
-	props: ['type'],
 	data() {
 		return {
 			user: {
@@ -67,15 +78,15 @@ export default {
 				if (res.data.isJump) {
 					switch (res.data.type) {
 						case 'tourist':
-							this.$router.push('tourist');
+							this.$router.push('personalPage/tourist');
 
 							break;
 						case 'business':
-							this.$router.push('business');
+							this.$router.push('personalPage/business');
 
 							break;
 						case 'administrator':
-							this.$router.push('administrator');
+							this.$router.push('personalPage/administrator');
 
 							break;
 						default:
@@ -89,8 +100,12 @@ export default {
 		},
 		hidden() {
 			this.isPromptShow = false;
+		},
+		cancelInput(user) {
+			user.username = '';
+			user.password = '';
+			user.type = 'tourist';
 		}
-		
 	}
 }
 </script>

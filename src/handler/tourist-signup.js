@@ -33,7 +33,9 @@ module.exports = function touristSignUp(req, res, next) {
 	}).then(() => {
 
 		res.status(200).json({
-			information: '游客注册成功'
+			information: '注册成功！',
+			isJump: true,
+			type: 'tourist'
 		});
 	});
 };

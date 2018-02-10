@@ -20,27 +20,15 @@ export default new Router({
 			component: Login
 		},
 		{
-			path: '/signin',
-			component: Signin
-		},
-		{
-			path: '/signup/tourist',
-			component: Tourist
-		},
-		{
-			path: '/signup/business',
-			component: Business
-		},
-		{
-			path: '/tourist',
+			path: '/personalPage/tourist',
 			component: touristMainPage
 		},
 		{
-			path: '/business',
+			path: '/personalPage/business',
 			component: Commercial
 		},
 		{
-			path: '/administrator',
+			path: '/personalPage/administrator',
 			component: Administrator
 		}
 	]

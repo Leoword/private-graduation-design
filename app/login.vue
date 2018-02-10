@@ -1,21 +1,23 @@
 <template>
 	<div class="box-container">
-		<div class="display-center card text-center">
-			<div class="card-header">
+		<div class="display-center text-center">
+			<nav>
 				<ul class="nav nav-tabs card-header-tabs">
-				<li class="nav-item">
-					<a class="nav-link" href="#" :class="{ 'active': style === 'tourist' }" @click="style='tourist'">游客</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" :class="{ 'active': style === 'business' }" @click="style='business'">商户</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" :class="{ 'active': style === 'administrator' }" @click="style='administrator'">管理员</a>
-				</li>
+					<li class="nav-item">
+						<a class="nav-link" id="signin-tab"
+						href="#signIn" :class="{ 'active': style === 'signin' }" @click="style='signin'">登陆</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" id="signup-tab"
+						href="#signUp" :class="{ 'active': style === 'signup' }" @click="style='signup'">注册</a>
+					</li>
 				</ul>
-			</div>
-			<div class="card-body">
-				<sign-in :type="style"></sign-in>
+			</nav>
+			<div class="tab-content">
+				<sign-in class="tab-pane fade" :class="{ 'active': style === 'signin', 'show': style === 'signin'}"
+				></sign-in>
+				<sign-up class="tab-pane fade" :class="{ 'active': style === 'signup', 'show': style === 'signup'}"
+				></sign-up>
 			</div>
 		</div>
 	</div>
@@ -23,24 +25,29 @@
 
 <script>
 import SignIn from './component/Signin.vue';
+import SignUp from './component/Signup.vue';
 
 export default {
 	name: 'login',
 	data() {
 		return {
-			style: 'tourist'
+			style: 'signin'
 		}
 	},
 	methods: {
 		
 	},
 	components: {
-		SignIn
+		SignIn,
+		SignUp
 	}
 }
 </script>
 
 <style>
+.card-header-tabs {
+	margin:0;
+}
 .box-container {
 	width:100%;
 	height:100%;
@@ -49,7 +56,7 @@ export default {
 }
 .display-center {
 	width:500px;
-	background:rgba(203, 220, 214, 0.78);
+	background:rgba(203, 220, 214, 0.9);
 	position: fixed;
 	top: 50%;
 	left: 50%;

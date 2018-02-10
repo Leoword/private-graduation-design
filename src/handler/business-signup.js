@@ -35,7 +35,9 @@ module.exports = function businessSignUp(req, res, next) {
 	}).then(() => {
 
 		res.status(200).json({
-			information: '商户注册成功'
+			information: '注册成功！',
+			isJump: true,
+			type: 'business'
 		});
 	});
 
