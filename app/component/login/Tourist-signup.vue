@@ -1,5 +1,5 @@
 <template>
-	<div class="text-center" id="business">
+	<div class="container text-center signup">
 		<div class="form-group">
 			<div class="row">
 				<label class="col-sm-3 col-form-label">
@@ -17,24 +17,6 @@
 				<div class="col-sm-8">
 					<input type="text" class="form-control" v-model="user.password"  @focus="hidden()" required>
 					<span>输入10到16位的小写字母、大写字母、数字、下划线、连接符混合</span>
-				</div>
-			</div>
-			<div class="row">
-				<label class="col-sm-3 col-form-label">
-					真实姓名：
-				</label>
-				<div class="col-sm-8">
-					<input type="text" class="form-control" v-model="user.realname"  @focus="hidden()" required>
-					<span>输入真实姓名以便审核</span>
-				</div>
-			</div>
-			<div class="row">
-				<label class="col-sm-3 col-form-label">
-					身份证号：
-				</label>
-				<div class="col-sm-8">
-					<input type="text" class="form-control" v-model="user.id"  @focus="hidden()" required>
-					<span>输入18位身份证号</span>
 				</div>
 			</div>
 			<div class="row">
@@ -75,26 +57,20 @@
 
 <script>
 import axios from 'axios';
-import signin from './Signin.vue';
 import {
 	USERNAME,
 	PASSWORD,
 	EMAIL,
-	ID,
-	REALNAME,
-	ADDRESS,
 	validate
-} from '../mixin';
+} from '../../mixin';
 
 export default {
-	name: "business-signup",
+	name: "tourist-signup",
 	data() {
 		return {
 			user: {
 				username: '',
 				password: '',
-				realname: '',
-				id: '',
 				email: '',
 				address: ''
 			},
@@ -104,9 +80,9 @@ export default {
 	},
 	methods: {
 		assignUser(user) {
-			if (user.username === '' || user.password === '' || user.email === '' || user.realname === '' || user.id === '' || user.address === '') {
+			if (user.username === '' || user.password === '' || user.email === '') {
 				this.isPromptShow = true;
-				this.prompt = '你必须输入以上所有的内容！';
+				this.prompt = '你必须输入用户名，密码和邮箱！';
 	
 				return;
 			}
@@ -125,28 +101,6 @@ export default {
 				return;
 			}
 
-			if (!validate(user.realname, REALNAME)) {
-				this.isPromptShow = true;
-				this.prompt = '请输入真实姓名！';
-	
-				return;
-			}
-
-			if (!validate(user.id, ID)) {
-				this.isPromptShow = true;
-				this.prompt = '请输入符合格式的身份证号！';
-	
-				return;
-			}
-
-
-			if (!validate(user.address, ADDRESS)) {
-				this.isPromptShow = true;
-				this.prompt = '请输入真实地址！';
-	
-				return;
-			}
-			
 			if (!validate(user.email, EMAIL)) {
 				this.isPromptShow = true;
 				this.prompt = '请输入符合格式的邮箱！';
@@ -154,9 +108,9 @@ export default {
 				return;
 			}
 
-			return axios.post('/api/signup/business', user).then(res => {
+			return axios.post('/api/signup/tourist', user).then(res => {
 				this.isPromptShow = true;
-				
+
 				if (res.data.isJump) {
 					switch (res.data.type) {
 						case 'tourist':
@@ -177,7 +131,7 @@ export default {
 					}
 					
 				}
-
+				
 				this.prompt = res.data.information;
 			});
 		},
@@ -194,25 +148,28 @@ export default {
 }
 </script>
 
+
 <style>
-#business .row{
+.signup .row{
 	margin:0;
 }
-#business .row button {
+.signup .row label{
+	font-size: 19px;
+}
+.signup .row button {
 	margin:10px auto;
 }
-#business .row span {
+.signup .row span {
 	font-size: 15px;
 	line-height: 50%;
 	text-align: left;
 }
-#business p{
+.signup p{
 	width:100%;
 	padding-bottom: 10px;
 	text-align: center;
 }
-#business .alert{
-	padding:5px;
+.signup .alert{
+	padding:5px; 
 }
 </style>
-

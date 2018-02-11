@@ -4,34 +4,32 @@
 			<nav>
 				<ul class="nav nav-tabs card-header-tabs">
 					<li class="nav-item">
-						<a class="nav-link" id="signin-tab"
-						href="#signIn" :class="{ 'active': style === 'signin' }" @click="style='signin'">登陆</a>
+						<span class="nav-link" :class="{ 'active': style === 'signin' }" 
+						@click="style='signin';currentView='SignIn'">登陆</span>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" id="signup-tab"
-						href="#signUp" :class="{ 'active': style === 'signup' }" @click="style='signup'">注册</a>
+						<span class="nav-link" :class="{ 'active': style === 'signup' }" 
+						@click="style='signup';currentView='SignUp'">注册</span>
 					</li>
 				</ul>
 			</nav>
 			<div class="tab-content">
-				<sign-in class="tab-pane fade" :class="{ 'active': style === 'signin', 'show': style === 'signin'}"
-				></sign-in>
-				<sign-up class="tab-pane fade" :class="{ 'active': style === 'signup', 'show': style === 'signup'}"
-				></sign-up>
+				<component class="tab-pane active" :is='currentView'></component>
 			</div>
 		</div>
 	</div>
 </template>
 
 <script>
-import SignIn from './component/Signin.vue';
-import SignUp from './component/Signup.vue';
+import SignIn from './component/login/Signin.vue';
+import SignUp from './component/login/Signup.vue';
 
 export default {
 	name: 'login',
 	data() {
 		return {
-			style: 'signin'
+			style: 'signin',
+			currentView: 'SignIn'
 		}
 	},
 	methods: {

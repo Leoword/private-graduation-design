@@ -3,13 +3,10 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 
-import Signin from './component/Signin.vue';
 import Login from './login.vue';
-import Tourist from './component/Tourist-signup.vue';
-import Business from './component/Business-signup.vue';
-import touristMainPage from './controlpanel/tourist.vue';
-import Commercial from './controlpanel/commercial.vue';
-import Administrator from './controlpanel/administrator.vue';
+import touristMainPage from './personalpage/tourist.vue';
+import Commercial from './personalpage/commercial.vue';
+import Administrator from './personalpage/administrator.vue';
 
 Vue.use(Router);
 
