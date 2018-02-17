@@ -8,11 +8,6 @@ const {throwError} = require('error-standardize');
 const validate = require('../lib/validate');
 
 module.exports = function signIn(req, res, next) {
-	if (req.session.state) {
-		return res.json({
-			information: '你已经登录！'
-		});
-	}
 
 	if (!validate('signin', req.body)) {
 		throwError(new Error('your username or password is ignore!'), 300);
@@ -29,6 +24,8 @@ module.exports = function signIn(req, res, next) {
 		}).then(tourist => {
 			if (tourist !== null) {
 				req.session.state = true;
+				req.session.name = tourist.touristName;
+
 				res.status(200).json({
 					information: '登录成功！',
 					isJump: true,
@@ -51,6 +48,8 @@ module.exports = function signIn(req, res, next) {
 		}).then(business => {
 			if (business !== null) {
 				req.session.state = true;
+				req.session.name = business.businessName;
+
 				res.status(200).json({
 					information: '登录成功！',
 					isJump: true,
@@ -73,6 +72,7 @@ module.exports = function signIn(req, res, next) {
 		}).then(administrator => {
 			if (administrator !== null) {
 				req.session.state = true;
+
 				res.status(200).json({
 					information: '登录成功！',
 					isJump: true,

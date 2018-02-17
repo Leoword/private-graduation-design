@@ -22,9 +22,9 @@
 		"babel-core": "^6.26.0",
 		"body-parser": "^1.18.2",
 		"bootstrap": "^4.0.0",
-		"cdx-handler-loader": "0.0.3",
 		"cookie-parser": "^1.4.3",
 		"express": "^4.16.2",
+		"express-handler-loader": "^0.1.7",
 		"express-session": "^1.15.6",
 		"mysql2": "^1.5.1",
 		"sequelize": "^4.32.1"

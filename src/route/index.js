@@ -1,26 +1,26 @@
 const express = require('express');
 const path = require('path');
 const router = express.Router();
+const loader = require('express-handler-loader');
 
-const {
-	loadHandlerFromDir,
-	handlerStore
-} = require('cdx-handler-loader');
+loader('handlers', {
+	pathname: path.resolve(__dirname, '../handler')
+});
 
-const HANDLER_PATH = path.resolve(__dirname, '../handler');
-
-loadHandlerFromDir(HANDLER_PATH);
+const handlers = loader('handlers');
 
 const {
 	signIn,
 	touristSignUp,
-	businessSignUp
-} = handlerStore;
+	businessSignUp,
+	informationOverview
+} = handlers;
 
 
 
 router.post('/signup/tourist', touristSignUp);
 router.post('/signup/business', businessSignUp);
 router.post('/signin', signIn);
+router.get('/personal/information', informationOverview);
 
 module.exports = router;

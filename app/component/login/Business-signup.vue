@@ -154,28 +154,6 @@ export default {
 
 			return axios.post('/api/signup/business', user).then(res => {
 				this.isPromptShow = true;
-				
-				if (res.data.isJump) {
-					switch (res.data.type) {
-						case 'tourist':
-							this.$router.push('personalPage/tourist');
-
-							break;
-						case 'business':
-							this.$router.push('personalPage/business');
-
-							break;
-						case 'administrator':
-							this.$router.push('personalPage/administrator');
-
-							break;
-						default:
-						
-							break;
-					}
-					
-				}
-
 				this.prompt = res.data.information;
 			});
 		},
