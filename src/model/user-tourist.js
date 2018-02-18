@@ -17,4 +17,4 @@ const Tourist = sequelize.define('tourist', {
 		type: Sequelize.STRING
 	}
 });
-Tourist.sync({force: true});
+Tourist.sync();

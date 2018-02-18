@@ -60,7 +60,7 @@
 					<button class="btn btn-outline-primary" @click="assignUser(user)">提交</button>
 				</div>
 				<div class="col-sm-3">
-					<button class="btn btn-outline-primary" @click="cancelInput(user)">重置</button>
+					<button type="reset" class="btn btn-outline-primary">重置</button>
 				</div>
 				<div class="col-sm-3"></div>
 				
@@ -102,12 +102,6 @@ export default {
 	},
 	methods: {
 		assignUser(user) {
-			if (user.username === '' || user.password === '' || user.email === '' || user.realname === '' || user.id === '' || user.address === '') {
-				this.isPromptShow = true;
-				this.prompt = '你必须输入以上所有的内容！';
-	
-				return;
-			}
 
 			if (!validate(user.username, USERNAME)) {
 				this.isPromptShow = true;
@@ -156,12 +150,6 @@ export default {
 				this.isPromptShow = true;
 				this.prompt = res.data.information;
 			});
-		},
-		cancelInput(user) {
-			user.username = '';
-			user.password = '';
-			user.email = '';
-			user.address = '';
 		},
 		hidden() {
 			this.isPromptShow = false;

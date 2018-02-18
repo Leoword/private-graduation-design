@@ -11,4 +11,4 @@ const Administrator = sequelize.define('administrator', {
 		type: Sequelize.STRING
 	}
 });
-Administrator.sync({force: true});
+Administrator.sync();

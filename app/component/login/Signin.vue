@@ -36,7 +36,7 @@
 				<button class="btn btn-outline-primary" @click="userSignIn(user)">登录</button>
 			</div>
 			<div class="col-sm-3">
-				<button class="btn btn-outline-primary" @click="cancelInput(user)">重置</button>
+				<button class="btn btn-outline-primary" type="reset">重置</button>
 			</div>
 			<div class="col-sm-3"></div>
 		</div>
@@ -100,11 +100,6 @@ export default {
 		},
 		hidden() {
 			this.isPromptShow = false;
-		},
-		cancelInput(user) {
-			user.username = '';
-			user.password = '';
-			user.type = 'tourist';
 		}
 	}
 }

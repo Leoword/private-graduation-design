@@ -3,6 +3,7 @@
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
 	entry: {
@@ -47,6 +48,13 @@ module.exports = {
 			filename: 'index.html',
 			template: path.resolve(__dirname, './index.html')
 		}),
-		new ExtractTextPlugin('styles.[hash:5].css')
+		new ExtractTextPlugin('styles.css'),
+		new CleanWebpackPlugin(
+			['dist/styles.*.css', 'dist/*.jpg'],
+			{
+				root: path.resolve(__dirname, '../'),
+				dry:false
+			}
+		)
 	]		
 };

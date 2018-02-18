@@ -23,4 +23,4 @@ const Business = sequelize.define('business', {
 		type: Sequelize.STRING
 	}
 });
-Business.sync({force: true});
+Business.sync();

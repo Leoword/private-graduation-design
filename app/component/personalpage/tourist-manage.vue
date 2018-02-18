@@ -18,7 +18,7 @@
 				</tr>
 			</tbody>
 		</table>
-		<h1 v-if="tourist === null" class="assign">{{tip}}</h1>
+		<h1 v-if="tourist === null">{{tip}}</h1>
 	</div>
 </template>
 
@@ -33,8 +33,8 @@ export default {
 		}
 	},
 	beforeCreate() {
-		return axios.get('/api/personal/information').then((res) => {
-			console.log(res.data.information);
+		return axios.get('/api/personal/tourist/information').then((res) => {
+
 			if (!res.data.information) {
 				this.tourist = res.data;
 			} else {
@@ -44,10 +44,4 @@ export default {
 	}
 }
 </script>
-
-<style>
-.assign {
-	margin:50px;
-}
-</style>
 
