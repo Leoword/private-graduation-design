@@ -29,29 +29,24 @@
 						修改密码
 					</div>
 					<div class="item"
+					:class="{ 'on': currentView === 'publish' }"
+					@click="currentView = 'publish';viewName = '发布商品'">
+						发布商品
+					</div>
+					<div class="item"
+					:class="{ 'on': currentView === 'manageGoods' }"
+					@click="currentView = 'manageGoods';viewName = '商品管理'">
+						商品管理
+					</div>
+					<div class="item"
 					:class="{ 'on': currentView === 'collect' }"
-					@click="currentView = 'collect';viewName = '个人收藏'">
-						个人收藏
+					@click="currentView = 'collect';viewName = '收藏情况'">
+						收藏情况
 					</div>
 					<div class="item"
-					:class="{ 'on': currentView === 'query' }"
-					@click="currentView = 'query';viewName = '订单查询'">
-						订单查询
-					</div>
-					<div class="item"
-					:class="{ 'on': currentView === 'recommend' }"
-					@click="currentView = 'recommend';viewName = '相关推荐'">
-						相关推荐
-					</div>
-					<div class="item"
-					:class="{ 'on': currentView === 'analysis' }"
-					@click="currentView = 'analysis';viewName = '偏好分析'">
-						偏好分析
-					</div>
-					<div class="item"
-					:class="{ 'on': currentView === 'overview' }"
-					@click="currentView = 'overview';viewName = '地区概览'">
-						地区概览
+					:class="{ 'on': currentView === 'sale' }"
+					@click="currentView = 'sale';viewName = '销售情况'">
+						销售情况
 					</div>
 					<div class="item"
 					:class="{ 'on': currentView === 'signout' }"
@@ -68,15 +63,14 @@
 </template>
 
 <script>
-import Manage from '../component/personalpage/tourist-manage.vue';
-import Modify from '../component/personalpage/tourist-modify.vue';
-import Alter from '../component/personalpage/tourist-alter.vue';
-import Collect from '../component/personalpage/tourist-collect.vue';
-import Query from '../component/personalpage/tourist-query.vue';
-import Recommend from '../component/personalpage/tourist-recommend.vue';
-import Analysis from '../component/personalpage/tourist-analysis.vue';
-import Overview from '../component/personalpage/tourist-overview.vue';
-import Signout from '../component/personalpage/tourist-signout.vue';
+import Manage from '../component/personalpage/commercial-manage.vue';
+import Modify from '../component/personalpage/commercial-modify.vue';
+import Alter from '../component/personalpage/commercial-alter.vue';
+import Publish from '../component/personalpage/commercial-publish.vue';
+import ManageGoods from '../component/personalpage/commercial-manage-goods.vue';
+import Collect from '../component/personalpage/commercial-collect.vue';
+import Sale from '../component/personalpage/commercial-sale.vue';
+import Signout from '../component/personalpage/commercial-signout.vue';
 
 export default {
 	name: 'tourist',
@@ -90,11 +84,10 @@ export default {
 		Manage,
 		Modify,
 		Alter,
+		Publish,
+		ManageGoods,
 		Collect,
-		Query,
-		Recommend,
-		Analysis,
-		Overview,
+		Sale,
 		Signout
 	}
 }

@@ -57,6 +57,18 @@ const businessSchema = {
 	required: ['username', 'password', 'realname', 'id', 'email', 'address']
 };
 
+const tranvelNote = {
+	properties: {
+		title: {
+			type: 'string'
+		},
+		content: {
+			type: 'string'
+		}
+	},
+	required: ['title', 'content']
+};
+
 const ajv = new Ajv({
 	allErrors: true
 });
@@ -75,6 +87,10 @@ module.exports = function validate(type, data) {
 		break;
 	case 'business':
 		validate = ajv.compile(businessSchema);
+
+		break;
+	case 'tranvelNote':
+		validate = ajv.compile(tranvelNote);
 
 		break;
 	default:

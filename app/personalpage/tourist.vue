@@ -29,6 +29,16 @@
 						修改密码
 					</div>
 					<div class="item"
+					:class="{ 'on': currentView === 'publish' }"
+					@click="currentView = 'publish';viewName = '发表游记'">
+						发表游记
+					</div>
+					<div class="item"
+					:class="{ 'on': currentView === 'manageTranvel' }"
+					@click="currentView = 'manageTranvel';viewName = '个人游记'">
+						个人游记
+					</div>
+					<div class="item"
 					:class="{ 'on': currentView === 'collect' }"
 					@click="currentView = 'collect';viewName = '个人收藏'">
 						个人收藏
@@ -71,6 +81,8 @@
 import Manage from '../component/personalpage/tourist-manage.vue';
 import Modify from '../component/personalpage/tourist-modify.vue';
 import Alter from '../component/personalpage/tourist-alter.vue';
+import Publish from '../component/personalpage/tourist-publish-tranvel.vue';
+import ManageTranvel from '../component/personalpage/tourist-manage-tranvel.vue';
 import Collect from '../component/personalpage/tourist-collect.vue';
 import Query from '../component/personalpage/tourist-query.vue';
 import Recommend from '../component/personalpage/tourist-recommend.vue';
@@ -90,6 +102,8 @@ export default {
 		Manage,
 		Modify,
 		Alter,
+		Publish,
+		ManageTranvel,
 		Collect,
 		Query,
 		Recommend,

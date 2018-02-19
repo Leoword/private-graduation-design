@@ -15,7 +15,10 @@ const {
 	businessSignUp,
 	informationOverview,
 	updateTourist,
-	alterTouristPassowrd
+	alterTouristPassowrd,
+	addTranvelNote,
+	manageNote,
+	deleteNote
 } = handlers;
 
 
@@ -26,5 +29,8 @@ router.post('/signin', signIn);
 router.get('/personal/tourist/information', informationOverview);
 router.put('/personal/tourist/update', updateTourist);
 router.put('/personal/tourist/password', alterTouristPassowrd);
+router.post('/personal/tourist/publish', addTranvelNote);
+router.get('/personal/tourist/manage', manageNote);
+router.put('/personal/tourist/delete', deleteNote);
 
 module.exports = router;
