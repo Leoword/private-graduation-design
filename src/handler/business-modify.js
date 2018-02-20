@@ -1,29 +1,27 @@
 'use strict';
 
 const sequelize = require('../lib/database');
-const Tourist = sequelize.model('tourist');
+const Business = sequelize.model('business');
 
-module.exports = function updateTourist(req, res, next) {
+module.exports = function updateBusiness(req, res, next) {
 	const { email, address } = req.body;
 
 	if (!req.session.state) {
 		res.status(200).json({
 			information: '你还未登录！'
 		});
-
-		return;
 	}
 
-	Tourist.update({
+	Business.update({
 		email,
 		address
 	},
 	{
 		where: {
-			touristName: req.session.name
+			businessName: req.session.name
 		}
-	}).then(tourist => {
-		if (tourist !== null) {
+	}).then(business => {
+		if (business !== null) {
 			res.status(200).json({
 				information: '修改成功！'
 			});

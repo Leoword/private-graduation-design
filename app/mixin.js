@@ -1,6 +1,7 @@
 'use strict';
 
 export const PASSWORD = /^[a-zA-Z0-9_-]{10,16}$/;
+export const PRICE = /^[0-9]{0,10}$/;
 export const USERNAME = /^[a-zA-Z0-9_-]{5,16}$/;
 export const EMAIL = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
 export const ID = /\d{17}[\d|X]{1}$/;

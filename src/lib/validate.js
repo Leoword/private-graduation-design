@@ -69,6 +69,24 @@ const tranvelNote = {
 	required: ['title', 'content']
 };
 
+const production = {
+	properties: {
+		name: {
+			type: 'string'
+		},
+		type: {
+			type: 'string'
+		},
+		describe: {
+			type: 'string'
+		},
+		image: {
+			type: 'object'
+		},
+	},
+	required: ['name', 'type', 'describe', 'image']
+};
+
 const ajv = new Ajv({
 	allErrors: true
 });
@@ -91,6 +109,10 @@ module.exports = function validate(type, data) {
 		break;
 	case 'tranvelNote':
 		validate = ajv.compile(tranvelNote);
+
+		break;
+	case 'production':
+		validate = ajv.compile(production);
 
 		break;
 	default:
