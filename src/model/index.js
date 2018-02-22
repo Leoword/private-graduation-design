@@ -3,3 +3,5 @@ require('./user-business');
 require('./administrator');
 require('./tranvel-note');
 require('./production');
+require('./collection');
+require('./order');

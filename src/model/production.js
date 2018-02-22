@@ -47,7 +47,12 @@ const Production = sequelize.define('production', {
 		type: Sequelize.INTEGER(11),
 		allowNull: false,
 		defaultValue: 0
+	},
+	state: {
+		type: Sequelize.STRING,
+		allowNull: false,
+		defaultValue: '待审核'
 	}
 });
 
-Production.sync({force:true});
+Production.sync({force: true});

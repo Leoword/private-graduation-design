@@ -18,5 +18,6 @@ app.use(session({
 	saveUninitialized: true
 }));
 
+app.use(express.static('source-lib'));
 app.use('/api', router);
 app.use(errorHandler());

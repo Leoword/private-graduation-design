@@ -22,7 +22,12 @@ const TranvelNote = sequelize.define('tranvelNote', {
 	content: {
 		type: Sequelize.STRING,
 		allowNull: false
+	},
+	state: {
+		type: Sequelize.STRING,
+		allowNull: false,
+		defaultValue: '待审核'
 	}
 });
 
-TranvelNote.sync();
+TranvelNote.sync({force: true});

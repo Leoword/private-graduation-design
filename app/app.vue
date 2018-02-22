@@ -65,4 +65,7 @@ export default {
 	line-height: 35px;
 	text-align: center;
 }
+.signout{
+	margin-top:10px;
+}
 </style>

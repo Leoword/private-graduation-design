@@ -4,7 +4,6 @@ const sequelize = require('../lib/database');
 const Production = sequelize.model('production');
 
 module.exports = function deleteProduction(req, res, next) {
-	console.log(req.body.productionName);
 	
 	Production.destroy({
 		where: {

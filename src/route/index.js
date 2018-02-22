@@ -24,14 +24,14 @@ const {
 	alterBusinessPassowrd,
 	formidable,
 	manageProduction,
-	deleteProduction
+	deleteProduction,
+	signOut
 } = handlers;
-
-
 
 router.post('/signup/tourist', touristSignUp);
 router.post('/signup/business', businessSignUp);
 router.post('/signin', signIn);
+router.get('/signout', signOut);
 router.get('/personal/tourist/information', informationOverview);
 router.put('/personal/tourist/update', updateTourist);
 router.put('/personal/tourist/password', alterTouristPassowrd);
