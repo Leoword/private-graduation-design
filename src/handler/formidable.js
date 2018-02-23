@@ -6,17 +6,21 @@ const fs = require('fs');
 const sequelize = require('../lib/database');
 const validate = require('../lib/validate')
 const Production = sequelize.model('production');
+const {throwError} = require('error-standardize');
 
 module.exports = function formidable(req, res, next) {
 	const form = new Formidable.IncomingForm();
 
 	form.uploadDir = path.resolve(__dirname, '../../source-lib');
 	form.keepExtensions = true;
+	form.maxFieldsSize = 2 * 1024 * 1024;
 
 	form.parse(req, function(err, fields, files) {
+
 		if (err) {
 			throw err;
 		}
+		
 
 		if (!validate('production', Object.assign({}, fields, files))) {
 			throwError(new Error('your input is ignore!'), 300);
@@ -41,6 +45,7 @@ module.exports = function formidable(req, res, next) {
 				describe: fields.describe,
 				price: fields.price,
 				type: fields.type,
+				destination: fields.destination,
 				image: files.image.name
 			}).then(production => {
 				if (production !== null) {

@@ -48,6 +48,10 @@ const Production = sequelize.define('production', {
 		allowNull: false,
 		defaultValue: 0
 	},
+	destination: {
+		type: Sequelize.STRING,
+		allowNull: false
+	},
 	state: {
 		type: Sequelize.STRING,
 		allowNull: false,
@@ -55,4 +59,4 @@ const Production = sequelize.define('production', {
 	}
 });
 
-Production.sync({force: true});
+Production.sync();

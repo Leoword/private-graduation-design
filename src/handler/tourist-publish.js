@@ -23,7 +23,8 @@ module.exports = function addTranvelNote(req, res, next) {
 	TranvelNote.create({
 		touristName: req.session.name,
 		title: req.body.title,
-		content: req.body.content
+		content: req.body.content,
+		type: req.body.type
 	}).then(item => {
 		if (item !== null) {
 			res.status(200).json({

@@ -23,6 +23,10 @@ const TranvelNote = sequelize.define('tranvelNote', {
 		type: Sequelize.STRING,
 		allowNull: false
 	},
+	type: {
+		type: Sequelize.STRING,
+		allowNull: false
+	},
 	state: {
 		type: Sequelize.STRING,
 		allowNull: false,
@@ -30,4 +34,4 @@ const TranvelNote = sequelize.define('tranvelNote', {
 	}
 });
 
-TranvelNote.sync({force: true});
+TranvelNote.sync();

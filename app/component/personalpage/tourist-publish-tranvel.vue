@@ -10,6 +10,19 @@
 			placeholder="输入四到十个汉字" @focus="hidden()" required/>
 		</div>
 		<div class="form-group row">
+			<label for="type" class="col-sm-2 col-form-label label">
+				游记类型：
+			</label>
+			<select id="type" class="custom-select col-sm-6"
+			v-model="tranvel.type" @focus="hidden()">
+				<option value="旅游经历分享">旅游经历分享</option>
+				<option value="观光景点推荐">观光景点推荐</option>
+				<option value="家庭旅游分享推荐">家庭旅游分享推荐</option>
+				<option value="防骗妙招">防骗妙招</option>
+				<option value="享受旅途技巧分享">享受旅途技巧分享</option>
+			</select>
+		</div>
+		<div class="form-group row">
 			<label for="content" class="col-sm-2 col-form-label label">
 				内容：
 			</label>
@@ -41,7 +54,8 @@ export default {
 		return {
 			tranvel:{
 				title: '',
-				content: ''
+				content: '',
+				type: ''
 			},
 			isPrompt: false,
 			prompt: ''

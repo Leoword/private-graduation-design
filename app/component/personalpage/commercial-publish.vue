@@ -18,19 +18,28 @@
 			v-model="production.price"
 			placeholder="输入数字" @focus="hidden()" required/>
 		</div>
+			<div class="form-group row">
+			<label for="destination" class="col-sm-2 col-form-label label">
+				目的地：
+			</label>
+			<input id="destination" class="form-control 
+			col-sm-6" type="text"
+			v-model="production.destination"
+			placeholder="输入地址" @focus="hidden()" required/>
+		</div>
 		<div class="form-group row">
 			<label for="type" class="col-sm-2 col-form-label label">
 				商品类型：
 			</label>
 			<select id="type" class="custom-select col-sm-6"
 			v-model="production.type" @focus="hidden()">
-				<option value="sightseeing">观光旅游</option>
-				<option value="entertainment">文娱消遣旅游</option>
-				<option value="official">公务旅游</option>
-				<option value="family">个人及家庭事务旅游</option>
-				<option value="healthcare">保健旅游</option>
-				<option value="culture">文化类旅游</option>
-				<option value="explore">生态/探险旅游</option>
+				<option value="观光旅游">观光旅游</option>
+				<option value="文娱消遣旅游">文娱消遣旅游</option>
+				<option value="公务旅游">公务旅游</option>
+				<option value="个人及家庭事务旅游">个人及家庭事务旅游</option>
+				<option value="保健旅游">保健旅游</option>
+				<option value="文化类旅游">文化类旅游</option>
+				<option value="生态/探险旅游">生态/探险旅游</option>
 			</select>
 		</div>
 		<div class="form-group row">
@@ -76,7 +85,8 @@ export default {
 				name: '',
 				type: '',
 				describe: '',
-				price: ''
+				price: '',
+				destination: ''
 			},
 			isPrompt: false,
 			prompt: ''
@@ -97,6 +107,14 @@ export default {
 
 				return;
 			}
+
+			if (!validate(production.destination, TITLE)) {
+				this.isPrompt = true;
+				this.prompt = '输入目的地不明确！';
+
+				return;
+			}
+			
 			const file = this.production.image;
 
 			if (file.type !== 'image/png' && file.type !== 'image/jpg' && file.type !== 'image/jpeg') {
@@ -111,6 +129,7 @@ export default {
 			formData.append('type', this.production.type);
 			formData.append('price', this.production.price);
 			formData.append('describe', this.production.describe);
+			formData.append('destination', this.production.destination);
 			formData.append('image', this.production.image);
 
 			axios.post('api/personal/business/publish', formData, {

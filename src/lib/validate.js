@@ -64,9 +64,12 @@ const tranvelNote = {
 		},
 		content: {
 			type: 'string'
+		},
+		type: {
+			type: 'string'
 		}
 	},
-	required: ['title', 'content']
+	required: ['title', 'content', 'type']
 };
 
 const production = {
@@ -83,8 +86,15 @@ const production = {
 		image: {
 			type: 'object'
 		},
+		price: {
+			type: 'string'
+		},
+		destination: {
+			type: 'string'
+		}
+
 	},
-	required: ['name', 'type', 'describe', 'image']
+	required: ['name', 'type', 'describe', 'image', 'price', 'destination']
 };
 
 const ajv = new Ajv({

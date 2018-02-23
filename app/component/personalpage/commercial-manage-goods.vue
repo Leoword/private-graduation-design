@@ -6,8 +6,9 @@
 					<th scope="col">发布时间</th>
 					<th scope="col">商品名</th>
 					<th scope="col">价格</th>
+					<th scope="col">目的地</th>
 					<th scope="col">类型</th>
-					<th scope="col">商品描述</th>
+					<th scope="col">审核状态</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -16,8 +17,9 @@
 					<td>{{production.createdAt}}</td>
 					<td>{{production.productionName}}</td>
 					<td>{{production.price}}</td>
+					<td>{{production.destination}}</td>
 					<td>{{production.type}}</td>
-					<td>{{production.describe}}</td>
+					<td>{{production.state}}</td>
 					<td>
 						<button class="btn btn-primary"
 						@click="deleteNote(production)">删除</button>

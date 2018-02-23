@@ -4,6 +4,7 @@ import Vue from 'vue';
 import Router from 'vue-router';
 
 import Login from './login.vue';
+import Mainpage from './mainPage.vue';
 import touristMainPage from './personalpage/tourist.vue';
 import Commercial from './personalpage/commercial.vue';
 import Administrator from './personalpage/administrator.vue';
@@ -15,6 +16,10 @@ export default new Router({
 		{
 			path: '/login',
 			component: Login
+		},
+		{
+			path: '/mainPage',
+			component: Mainpage
 		},
 		{
 			path: '/personalPage/tourist',
