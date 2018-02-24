@@ -65,7 +65,6 @@
 			<button type="reset" class="col-sm-1 btn btn-primary">重置</button>
 		</div>
 		<p class="alert alert-warning" v-if="isPrompt">{{prompt}}</p>
-		<img src="http://localhost:4000/1.jpg"/>
 	</form>
 
 </template>

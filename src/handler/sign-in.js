@@ -24,6 +24,7 @@ module.exports = function signIn(req, res, next) {
 		}).then(tourist => {
 			if (tourist !== null) {
 				req.session.state = true;
+				req.session.type = 'tourist';
 				req.session.name = tourist.touristName;
 
 				res.status(200).json({
@@ -48,6 +49,7 @@ module.exports = function signIn(req, res, next) {
 		}).then(business => {
 			if (business !== null) {
 				req.session.state = true;
+				req.session.type = 'business';
 				req.session.name = business.businessName;
 
 				res.status(200).json({
@@ -72,6 +74,7 @@ module.exports = function signIn(req, res, next) {
 		}).then(administrator => {
 			if (administrator !== null) {
 				req.session.state = true;
+				req.session.type = 'administrator';
 
 				res.status(200).json({
 					information: '登录成功！',

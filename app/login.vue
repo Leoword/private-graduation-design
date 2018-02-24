@@ -1,5 +1,6 @@
 <template>
 	<div class="box-container">
+		<nav-self></nav-self>
 		<div class="display-center text-center">
 			<nav>
 				<ul class="nav nav-tabs card-header-tabs">
@@ -23,6 +24,7 @@
 <script>
 import SignIn from './component/login/Signin.vue';
 import SignUp from './component/login/Signup.vue';
+import NavSelf from './component/nav.vue';
 
 export default {
 	name: 'login',
@@ -37,7 +39,8 @@ export default {
 	},
 	components: {
 		SignIn,
-		SignUp
+		SignUp,
+		NavSelf
 	}
 }
 </script>
@@ -65,6 +68,14 @@ export default {
 
 #login {
 	width:500px;
+}
+#mainPage .recommend .card img{
+	width:100%;
+	height:200px;
+	background-color: gray;
+}
+#mainPage .shopping h1{
+	color:rgb(255,255,255);
 }
 </style>
 

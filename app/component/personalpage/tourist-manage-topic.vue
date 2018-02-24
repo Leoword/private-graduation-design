@@ -1,28 +1,24 @@
 <template>
 	<div>
-		<table class="table" v-if="productionList !== null">
+		<table class="table" v-if="topic !== null">
 			<thead>
 				<tr>
-					<th scope="col">发布时间</th>
-					<th scope="col">商品名</th>
-					<th scope="col">价格</th>
-					<th scope="col">目的地</th>
+					<th scope="col">标题</th>
 					<th scope="col">类型</th>
 					<th scope="col">审核状态</th>
+					<th scope="col">创建时间</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr v-for="(production, index) in productionList"
+				<tr v-for="(item, index) in topic"
 				:key="index">
-					<td>{{production.createdAt}}</td>
-					<td>{{production.productionName}}</td>
-					<td>{{production.price}}</td>
-					<td>{{production.destination}}</td>
-					<td>{{production.type}}</td>
-					<td>{{production.state}}</td>
+					<td>{{item.title}}</td>
+					<td>{{item.type}}</td>
+					<td>{{item.state}}</td>
+					<td>{{item.createdAt}}</td>
 					<td>
 						<button class="btn btn-primary"
-						@click="deleteNote(production)">删除</button>
+						@click="deleteNote(item)">删除</button>
 					</td>
 				</tr>
 			</tbody>
@@ -37,7 +33,7 @@
 				</li>
 			</ul>
 		</nav>
-		<h1 v-if="productionList === null">{{tip}}</h1>
+		<h1 v-if="topic === null">{{tip}}</h1>
 		<p class="alert alert-warning" v-if="isPrompt">{{prompt}}</p>
 	</div>
 </template>
@@ -49,30 +45,31 @@ import {pagenator} from '../../mixin';
 export default {
 	data() {
 		return {
-			productionList: null,
+			topic: null,
 			tip: '',
+			container: [],
 			isPrompt: false,
 			prompt: '',
-			container: [],
 			number: 0
 		}
 	},
 	beforeCreate() {
-		return axios.get('/api/personal/business/manage-production').then((res) => {
+		return axios.get('/api/personal/tourist/manage/topic').then((res) => {
 
 			if (!res.data.information) {
-				const {container, note} = pagenator(5, res.data, this.container, this.note);
+				const {container, note} = pagenator(5, res.data, this.container, this.topic);
 
 				this.container = container;
-				this.productionList = note;
+				this.topic = note;
+
 			} else {
 				this.tip = res.data.information;
 			}
 		});
 	},
 	methods: {
-		deleteNote(production) {
-			axios.put('/api/personal/business/delete', production).then(res => {
+		deleteNote(item) {
+			axios.put('/api/personal/tourist/delete/topic', item).then(res => {
 				if (res.data.prompt) {
 					this.isPrompt = true;
 					this.prompt = res.data.prompt;
@@ -80,7 +77,7 @@ export default {
 			});
 		},
 		changePage() {
-			this.productionList = this.container[this.number];
+			this.topic = this.container[this.number];
 		}
 	}
 }

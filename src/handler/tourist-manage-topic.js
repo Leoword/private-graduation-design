@@ -1,9 +1,9 @@
 'use strict';
 
 const sequelize = require('../lib/database');
-const TravelNote = sequelize.model('tranvelNote');
+const Topic = sequelize.model('topic');
 
-module.exports = function manageNote(req, res, next) {
+module.exports = function manageTopic(req, res, next) {
 	if (!req.session.state  || req.session.type !== 'tourist') {
 		res.status(200).json({
 			information: '你还没有登录！'
@@ -12,16 +12,16 @@ module.exports = function manageNote(req, res, next) {
 		return;
 	}
 
-	TravelNote.findAll({
+	Topic.findAll({
 		where: {
 			touristName: req.session.name
 		}
-	}).then(note => {
-		if (note.length !== 0) {
-			res.status(200).json(note);
+	}).then(topic => {
+		if (topic.length !== 0) {
+			res.status(200).json(topic);
 		} else {
 			res.status(200).json({
-				information: '你还没有发布任何游记！'
+				information: '你还没有发布任何话题！'
 			});
 		}
 	});

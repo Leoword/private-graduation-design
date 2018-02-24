@@ -1,6 +1,6 @@
 <template>
 	<div class="mainpage">
-		<nav class="nav-bar"></nav>
+		<nav-self></nav-self>
 		<div class="content">
 			<div class="head">
 				<img src='../../source/image/tourist_top.jpg'/>
@@ -37,6 +37,16 @@
 					:class="{ 'on': currentView === 'manageTranvel' }"
 					@click="currentView = 'manageTranvel';viewName = '个人游记'">
 						个人游记
+					</div>
+					<div class="item"
+					:class="{ 'on': currentView === 'topic' }"
+					@click="currentView = 'topic';viewName = '发表话题'">
+						发表话题
+					</div>
+					<div class="item"
+					:class="{ 'on': currentView === 'manageTopic' }"
+					@click="currentView = 'manageTopic';viewName = '个人话题'">
+						个人话题
 					</div>
 					<div class="item"
 					:class="{ 'on': currentView === 'collect' }"
@@ -83,12 +93,15 @@ import Modify from '../component/personalpage/tourist-modify.vue';
 import Alter from '../component/personalpage/tourist-alter.vue';
 import Publish from '../component/personalpage/tourist-publish-tranvel.vue';
 import ManageTranvel from '../component/personalpage/tourist-manage-tranvel.vue';
+import Topic from '../component/personalpage/tourist-publish-topic.vue';
+import ManageTopic from '../component/personalpage/tourist-manage-topic.vue';
 import Collect from '../component/personalpage/tourist-collect.vue';
 import Query from '../component/personalpage/tourist-query.vue';
 import Recommend from '../component/personalpage/tourist-recommend.vue';
 import Analysis from '../component/personalpage/tourist-analysis.vue';
 import Overview from '../component/personalpage/tourist-overview.vue';
 import Signout from '../component/personalpage/tourist-signout.vue';
+import NavSelf from '../component/nav.vue';
 
 export default {
 	name: 'tourist',
@@ -104,12 +117,15 @@ export default {
 		Alter,
 		Publish,
 		ManageTranvel,
+		Topic,
+		ManageTopic,
 		Collect,
 		Query,
 		Recommend,
 		Analysis,
 		Overview,
-		Signout
+		Signout,
+		NavSelf
 	}
 }
 </script>

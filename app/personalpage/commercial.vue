@@ -1,6 +1,6 @@
 <template>
 	<div class="mainpage">
-		<nav class="nav-bar"></nav>
+		<nav-self></nav-self>
 		<div class="content">
 			<div class="head">
 				<img src='../../source/image/tourist_top.jpg'/>
@@ -71,6 +71,7 @@ import ManageGoods from '../component/personalpage/commercial-manage-goods.vue';
 import Collect from '../component/personalpage/commercial-collect.vue';
 import Sale from '../component/personalpage/commercial-sale.vue';
 import Signout from '../component/personalpage/commercial-signout.vue';
+import NavSelf from '../component/nav.vue';
 
 export default {
 	name: 'tourist',
@@ -88,7 +89,8 @@ export default {
 		ManageGoods,
 		Collect,
 		Sale,
-		Signout
+		Signout,
+		NavSelf
 	}
 }
 </script>

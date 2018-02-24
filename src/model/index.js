@@ -5,3 +5,5 @@ require('./tranvel-note');
 require('./production');
 require('./collection');
 require('./order');
+require('./topic');
+require('./comment');

@@ -1,6 +1,6 @@
 <template>
 	<div class="mainpage">
-		<nav class="nav-bar"></nav>
+		<nav-self></nav-self>
 		<div class="content">
 			<div class="head">
 				<img src='../../source/image/tourist_top.jpg'/>
@@ -14,44 +14,29 @@
 			<div class="body">
 				<div class="left">
 					<div class="item"
-					:class="{ 'on': currentView === 'manage' }"
-					@click="currentView = 'manage';viewName = '资料概览'">
-						资料概览
+					:class="{ 'on': currentView === 'manage-commercial' }"
+					@click="currentView = 'manage-commercial';viewName = '商户管理'">
+						商户管理
 					</div>
 					<div class="item"
-					:class="{ 'on': currentView === 'modify' }"
-					@click="currentView = 'modify';viewName = '资料完善'">
-						资料完善
+					:class="{ 'on': currentView === 'manage-tourist' }"
+					@click="currentView = 'manage-tourist';viewName = '游客管理'">
+						游客管理
 					</div>
 					<div class="item"
-					:class="{ 'on': currentView === 'alter' }"
-					@click="currentView = 'alter';viewName = '修改密码'">
-						修改密码
+					:class="{ 'on': currentView === 'production-examine' }"
+					@click="currentView = 'production-examine';viewName = '商品审核'">
+						商品审核
 					</div>
 					<div class="item"
-					:class="{ 'on': currentView === 'collect' }"
-					@click="currentView = 'collect';viewName = '个人收藏'">
-						个人收藏
+					:class="{ 'on': currentView === 'note-examine' }"
+					@click="currentView = 'note-examine';viewName = '游记审核'">
+						游记审核
 					</div>
 					<div class="item"
-					:class="{ 'on': currentView === 'query' }"
-					@click="currentView = 'query';viewName = '订单查询'">
-						订单查询
-					</div>
-					<div class="item"
-					:class="{ 'on': currentView === 'recommend' }"
-					@click="currentView = 'recommend';viewName = '相关推荐'">
-						相关推荐
-					</div>
-					<div class="item"
-					:class="{ 'on': currentView === 'analysis' }"
-					@click="currentView = 'analysis';viewName = '偏好分析'">
-						偏好分析
-					</div>
-					<div class="item"
-					:class="{ 'on': currentView === 'overview' }"
-					@click="currentView = 'overview';viewName = '地区概览'">
-						地区概览
+					:class="{ 'on': currentView === 'topic-examine' }"
+					@click="currentView = 'topic-examine';viewName = '话题审核'">
+						话题审核
 					</div>
 					<div class="item"
 					:class="{ 'on': currentView === 'signout' }"
@@ -68,34 +53,30 @@
 </template>
 
 <script>
-import Manage from '../component/personalpage/tourist-manage.vue';
-import Modify from '../component/personalpage/tourist-modify.vue';
-import Alter from '../component/personalpage/tourist-alter.vue';
-import Collect from '../component/personalpage/tourist-collect.vue';
-import Query from '../component/personalpage/tourist-query.vue';
-import Recommend from '../component/personalpage/tourist-recommend.vue';
-import Analysis from '../component/personalpage/tourist-analysis.vue';
-import Overview from '../component/personalpage/tourist-overview.vue';
-import Signout from '../component/personalpage/tourist-signout.vue';
+import ManageCommercial from '../component/personalpage/administrator-manage-commercial.vue';
+import ManageTourist from '../component/personalpage/administrator-manage-tourist.vue';
+import ProductionExamine from '../component/personalpage/administrator-examine-production.vue';
+import NoteExamine from '../component/personalpage/administrator-examine-note.vue';
+import TopicExamine from '../component/personalpage/administrator-examine-topic.vue';
+import Signout from '../component/personalpage/administrator-signout.vue';
+import NavSelf from '../component/nav.vue';
 
 export default {
 	name: 'tourist',
 	data() {
 	  return {
-		  currentView: 'manage',
-		  viewName: '资料管理'
+		  currentView: 'manage-commercial',
+		  viewName: '商户管理'
 	  };
 	},
 	components: {
-		Manage,
-		Modify,
-		Alter,
-		Collect,
-		Query,
-		Recommend,
-		Analysis,
-		Overview,
-		Signout
+		ManageCommercial,
+		ManageTourist,
+		ProductionExamine,
+		NoteExamine,
+		TopicExamine,
+		Signout,
+		NavSelf
 	}
 }
 </script>

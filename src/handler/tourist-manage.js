@@ -4,7 +4,7 @@ const sequelize = require('../lib/database');
 const Tourist = sequelize.model('tourist');
 
 module.exports = function informationOverview(req, res, next) {
-	if (!req.session.state) {
+	if (!req.session.state  || req.session.type !== 'tourist') {
 		res.status(200).json({
 			information: '你还没有进行登录!'
 		});

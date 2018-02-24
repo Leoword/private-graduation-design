@@ -72,6 +72,21 @@ const tranvelNote = {
 	required: ['title', 'content', 'type']
 };
 
+const topic = {
+	properties: {
+		title: {
+			type: 'string'
+		},
+		content: {
+			type: 'string'
+		},
+		type: {
+			type: 'string'
+		}
+	},
+	required: ['title', 'content', 'type']
+};
+
 const production = {
 	properties: {
 		name: {
@@ -119,6 +134,10 @@ module.exports = function validate(type, data) {
 		break;
 	case 'tranvelNote':
 		validate = ajv.compile(tranvelNote);
+
+		break;
+	case 'topic':
+		validate = ajv.compile(topic);
 
 		break;
 	case 'production':

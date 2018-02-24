@@ -27,7 +27,7 @@
 			<label class="custom-control-label" for="business">商家</label>
 		</div>
 		<div class="custom-control custom-radio custom-control-inline">
-			<input type="radio" name="identify" value="administator" v-model="user.type" id="administator" class="custom-control-input">
+			<input type="radio" name="identify" value="administrator" v-model="user.type" id="administator" class="custom-control-input">
 			<label class="custom-control-label" for="administator">管理员</label>
 		</div>
 		<div class="row">

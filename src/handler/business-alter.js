@@ -6,7 +6,7 @@ const Business = sequelize.model('business');
 module.exports = function alterBusinessPassowrd(req, res, next) {
 	const { old, password } = req.body;
 
-	if (!req.session.state) {
+	if (!req.session.state || req.session.type !== 'business') {
 		res.status(200).json({
 			information: '你还没有进行登录!'
 		});

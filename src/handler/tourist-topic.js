@@ -1,12 +1,12 @@
 'use strict';
 
 const sequelize = require('../lib/database');
-const TranvelNote = sequelize.model('tranvelNote');
+const Topic = sequelize.model('topic');
 const {throwError} = require('error-standardize');
 const validate = require('../lib/validate');
 
-module.exports = function addTranvelNote(req, res, next) {
-	if (!validate('tranvelNote', req.body)) {
+module.exports = function addTopic(req, res, next) {
+	if (!validate('topic', req.body)) {
 		throwError(new Error('your title or content is ignore!'), 300);
 
 		return;
@@ -20,7 +20,7 @@ module.exports = function addTranvelNote(req, res, next) {
 		return;
 	}
 
-	TranvelNote.create({
+	Topic.create({
 		touristName: req.session.name,
 		title: req.body.title,
 		content: req.body.content,

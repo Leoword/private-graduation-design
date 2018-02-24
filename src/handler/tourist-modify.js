@@ -6,7 +6,7 @@ const Tourist = sequelize.model('tourist');
 module.exports = function updateTourist(req, res, next) {
 	const { email, address } = req.body;
 
-	if (!req.session.state) {
+	if (!req.session.state  || req.session.type !== 'tourist') {
 		res.status(200).json({
 			information: '你还未登录！'
 		});
