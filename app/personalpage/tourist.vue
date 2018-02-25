@@ -96,7 +96,7 @@ import ManageTranvel from '../component/personalpage/tourist-manage-tranvel.vue'
 import Topic from '../component/personalpage/tourist-publish-topic.vue';
 import ManageTopic from '../component/personalpage/tourist-manage-topic.vue';
 import Collect from '../component/personalpage/tourist-collect.vue';
-import Query from '../component/personalpage/tourist-query.vue';
+import Query from '../component/personalpage/tourist-order.vue';
 import Recommend from '../component/personalpage/tourist-recommend.vue';
 import Analysis from '../component/personalpage/tourist-analysis.vue';
 import Overview from '../component/personalpage/tourist-overview.vue';

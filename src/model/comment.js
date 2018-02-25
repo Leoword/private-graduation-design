@@ -22,7 +22,6 @@ const Comment = sequelize.define('comment', {
 	},
 	topicNumber: {
 		type: Sequelize.INTEGER(11).UNSIGNED,
-		unique: true,
 		allowNull: false,
 		references: {
 			model: Topic,

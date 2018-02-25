@@ -45,7 +45,15 @@ const {
 	deleteTopic,
 	getAllTopic,
 	addCollection,
-	addOrder
+	addOrder,
+	addComment,
+	getAllComment,
+	manageCollection,
+	manageOrder,
+	deleteOrder,
+	deleteCollection,
+	recommend,
+	analysis
 } = handlers;
 
 router.post('/signup/tourist', touristSignUp);
@@ -87,5 +95,13 @@ router.put('/personal/administrator/exam/production', passProduction);
 router.put('/personal/administrator/exam/topic', passTopic);
 router.post('/production/collect', addCollection);
 router.post('/production/order', addOrder);
+router.post('/main/get/comment', getAllComment);
+router.post('/main/add/comment', addComment);
+router.get('/personal/tourist/collection', manageCollection);
+router.get('/personal/tourist/order', manageOrder);
+router.put('/personal/tourist/delete/order', deleteOrder);
+router.put('/personal/tourist/delete/collection', deleteCollection);
+router.get('/personal/tourist/recommend', recommend);
+router.get('/personal/tourist/analysis', analysis);
 
 module.exports = router;

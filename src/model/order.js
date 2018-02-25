@@ -19,16 +19,13 @@ const Order = sequelize.define('order', {
 	},
 	productionName: {
 		type: Sequelize.STRING,
-		references: {
-			model: Production,
-			key: 'productionName'
-		}
-	},
-	productionNumber: {
-		type: Sequelize.INTEGER(11),
-		allowNull: false,
-		defaultValue: 1
+		allowNull: false
+		
 	}
+});
+
+Production.hasMany(Order, {
+	foreignKey: 'productionNumber'
 });
 
 Order.sync();

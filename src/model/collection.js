@@ -16,14 +16,11 @@ const Collection = sequelize.define('collection', {
 			model: Tourist,
 			key: 'touristName'
 		}
-	},
-	productionName: {
-		type: Sequelize.STRING,
-		references: {
-			model: Production,
-			key: 'productionName'
-		}
 	}
+});
+
+Production.hasMany(Collection, {
+	foreignKey: 'productionNumber'
 });
 
 Collection.sync();

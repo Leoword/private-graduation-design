@@ -15,12 +15,12 @@ module.exports = function addCollection(req, res, next) {
 
 	Collection.create({
 		touristName: req.session.name,
-		productionName: req.body.productionName
+		productionNumber: req.body.productionNumber
 	}).then(collection => {
 		if (collection !== null) {
 			Production.findOne({
 				where: {
-					productionName: collection.productionName
+					productionNumber: collection.productionNumber
 				}
 			}).then(production => {
 				production.increment('collectNumber').then(production => {
@@ -29,7 +29,6 @@ module.exports = function addCollection(req, res, next) {
 						information: '收藏成功！'
 					});
 				});
-
 			})
 		}
 	});

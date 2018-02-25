@@ -38,7 +38,7 @@ import axios from 'axios';
 export default {
 	data() {
 		return {
-			production: this.$route.query.topic,
+			production: this.$route.query.production,
 			url: 'http://localhost:4000/',
 			isPrompt: false,
 			prompt: ''
