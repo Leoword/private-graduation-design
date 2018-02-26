@@ -33,7 +33,7 @@
 			</label>
 			<select id="type" class="custom-select col-sm-6"
 			v-model="production.type" @focus="hidden()">
-				<option value="观光旅游">观光旅游</option>
+				<option value="观光旅游">观光旅游 </option>
 				<option value="文娱消遣旅游">文娱消遣旅游</option>
 				<option value="公务旅游">公务旅游</option>
 				<option value="个人及家庭事务旅游">个人及家庭事务旅游</option>

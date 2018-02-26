@@ -12,11 +12,12 @@ module.exports = function addOrder(req, res, next) {
 
 		return;
 	}
-
+	
 	Order.create({
 		touristName: req.session.name,
 		productionName: req.body.productionName,
-		productionNumber: req.body.productionNumber
+		productionNumber: req.body.productionNumber,
+		businessName: req.body.businessName
 	}).then(order => {
 		Production.findOne({
 			where: {

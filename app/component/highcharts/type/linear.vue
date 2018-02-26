@@ -20,6 +20,10 @@ export default {
 				}];
 			}
 		},
+		xAxis: {
+			type: Object,
+			required: true
+		},
 		title: {
 			type: Object,
 			default() {
@@ -38,6 +42,7 @@ export default {
 			return Object.assign({}, {
 				series: this.series,
 				title: this.title,
+				xAxis: this.xAxis,
 				chart: {
 					type: 'line'
 				}

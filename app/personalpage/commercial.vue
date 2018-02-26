@@ -39,6 +39,11 @@
 						商品管理
 					</div>
 					<div class="item"
+					:class="{ 'on': currentView === 'dealOrder' }"
+					@click="currentView = 'dealOrder';viewName = '订单处理'">
+						订单处理
+					</div>
+					<div class="item"
 					:class="{ 'on': currentView === 'collect' }"
 					@click="currentView = 'collect';viewName = '收藏情况'">
 						收藏情况
@@ -68,6 +73,7 @@ import Modify from '../component/personalpage/commercial-modify.vue';
 import Alter from '../component/personalpage/commercial-alter.vue';
 import Publish from '../component/personalpage/commercial-publish.vue';
 import ManageGoods from '../component/personalpage/commercial-manage-goods.vue';
+import DealOrder from '../component/personalpage/commercial-deal-order.vue';
 import Collect from '../component/personalpage/commercial-collect.vue';
 import Sale from '../component/personalpage/commercial-sale.vue';
 import Signout from '../component/personalpage/commercial-signout.vue';
@@ -87,6 +93,7 @@ export default {
 		Alter,
 		Publish,
 		ManageGoods,
+		DealOrder,
 		Collect,
 		Sale,
 		Signout,

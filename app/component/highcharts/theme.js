@@ -40,7 +40,7 @@ Highcharts.setOptions(Highcharts.theme = {
 				font: '14px Trebuchet MS, Verdana, sans-serif'
 			}
 		},
-		categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+		categories: ['观光旅游', '文娱消遣旅游', '公务旅游', '个人及家庭事务旅游', '保健旅游', '文化类旅游', '生态/探险旅游']
 	},
 	yAxis: {
 		gridLineWidth: 0,

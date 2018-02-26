@@ -2,6 +2,7 @@ const sequelize = require('../lib/database');
 const Sequelize = require('sequelize');
 const Production = sequelize.model('production');
 const Tourist = sequelize.model('tourist');
+const Business = sequelize.model('business');
 
 const Collection = sequelize.define('collection', {
 	collectionNumber: {
@@ -9,18 +10,19 @@ const Collection = sequelize.define('collection', {
 		allowNull: false,
 		autoIncrement: true,
 		primaryKey: true
-	},
-	touristName: {
-		type: Sequelize.STRING,
-		references: {
-			model: Tourist,
-			key: 'touristName'
-		}
 	}
 });
 
 Production.hasMany(Collection, {
 	foreignKey: 'productionNumber'
+});
+
+Tourist.hasMany(Collection, {
+	foreignKey: 'touristName'
+});
+
+Business.hasMany(Collection, {
+	foreignKey: 'businessName'
 });
 
 Collection.sync();

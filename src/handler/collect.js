@@ -15,7 +15,8 @@ module.exports = function addCollection(req, res, next) {
 
 	Collection.create({
 		touristName: req.session.name,
-		productionNumber: req.body.productionNumber
+		productionNumber: req.body.productionNumber,
+		businessName: req.body.businessName
 	}).then(collection => {
 		if (collection !== null) {
 			Production.findOne({

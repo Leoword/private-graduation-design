@@ -21,6 +21,10 @@ export default {
 				}];
 			}
 		},
+		xAxis: {
+			type: Object,
+			required: true
+		},
 		title: {
 			type: Object,
 			default() {
@@ -33,6 +37,7 @@ export default {
 			
 			return Object.assign({}, {
 				series: this.series,
+				xAxis: this.xAxis,
 				title: this.title,
 				chart: {
 					type: 'column'

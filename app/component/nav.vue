@@ -28,12 +28,12 @@
 					<li class="nav-item dropdown">
 						<router-link class="nav-link" to="/topic">话题中心</router-link>
 					</li>
-					<li class="nav-item dropdown">
+					<!-- <li class="nav-item dropdown">
 						<router-link class="nav-link" to="#">人工服务</router-link>
 					</li>
 					<li class="nav-item dropdown">
 						<router-link class="nav-link" to="#">帮助中心</router-link>
-					</li>
+					</li> -->
 				</ul>
 			</div>
 		</nav>
