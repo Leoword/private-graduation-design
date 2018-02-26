@@ -14,6 +14,7 @@
 							<p class="card-text">{{item.productionName}}</p>
 							<p class="card-text">
 								<span>{{item.type}}</span>
+								<span>商品类</span>
 								<span>{{item.price}}元</span>
 							</p>
 						</div>
@@ -27,6 +28,20 @@
 							<p class="card-text">{{item.title}}</p>
 							<p class="card-text">
 								<span>{{item.type}}</span>
+								<span>游记类</span>
+							</p>
+						</div>
+					</div>
+					<div class="card" v-for="(item,index) in artical"
+					:key="index" @click="jumpNote(item)">
+						<img class="card-img-top"
+						:src="url + image"
+						alt="未上传图片">
+						<div class="card-body">
+							<p class="card-text">{{item.title}}</p>
+							<p class="card-text">
+								<span>{{item.type}}</span>
+								<span>文章类</span>
 							</p>
 						</div>
 					</div>
@@ -45,6 +60,7 @@ export default {
 		return {
 			production: null,
 			note: null,
+			artical: null,
 			url: 'http://localhost:4000/',
 			image: '1.jpg',
 			isShow: true,
@@ -65,6 +81,14 @@ export default {
 		axios.post('api/search/note', parameter).then(res => {
 			if (res.data.length !== 0) {
 				this.note = res.data;
+			} else {
+				this.elseShow = false;
+			}
+		});
+
+		axios.post('api/search/artical', parameter).then(res => {
+			if (res.data.length !== 0) {
+				this.artical = res.data;
 			} else {
 				this.elseShow = false;
 			}

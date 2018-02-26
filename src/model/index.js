@@ -7,3 +7,4 @@ require('./order');
 require('./collection');
 require('./topic');
 require('./comment');
+require('./artical');

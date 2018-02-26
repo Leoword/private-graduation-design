@@ -24,6 +24,16 @@
 						游客管理
 					</div>
 					<div class="item"
+					:class="{ 'on': currentView === 'publish-artical' }"
+					@click="currentView = 'publish-artical';viewName = '发布文章'">
+						发布文章
+					</div>
+					<div class="item"
+					:class="{ 'on': currentView === 'manage-artical' }"
+					@click="currentView = 'manage-artical';viewName = '管理文章'">
+						管理文章
+					</div>
+					<div class="item"
 					:class="{ 'on': currentView === 'production-examine' }"
 					@click="currentView = 'production-examine';viewName = '商品审核'">
 						商品审核
@@ -56,6 +66,8 @@
 import ManageCommercial from '../component/personalpage/administrator-manage-commercial.vue';
 import ManageTourist from '../component/personalpage/administrator-manage-tourist.vue';
 import ProductionExamine from '../component/personalpage/administrator-examine-production.vue';
+import ManageArtical from '../component/personalpage/administrator-manage-artical.vue';
+import PublishArtical from '../component/personalpage/administrator-publish-artical.vue';
 import NoteExamine from '../component/personalpage/administrator-examine-note.vue';
 import TopicExamine from '../component/personalpage/administrator-examine-topic.vue';
 import Signout from '../component/personalpage/administrator-signout.vue';
@@ -75,6 +87,8 @@ export default {
 		ProductionExamine,
 		NoteExamine,
 		TopicExamine,
+		ManageArtical,
+		PublishArtical,
 		Signout,
 		NavSelf
 	}

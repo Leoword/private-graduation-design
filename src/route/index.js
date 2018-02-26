@@ -57,7 +57,12 @@ const {
 	businessOrder,
 	passOrder,
 	businessAnalysisCollection,
-	businessAnalysisOrder
+	businessAnalysisOrder,
+	addArtical,
+	manageArtical,
+	deleteArtical,
+	getAllArtical,
+	searchArtical
 } = handlers;
 
 router.post('/signup/tourist', touristSignUp);
@@ -83,10 +88,13 @@ router.post('/main/production', getAllProduction);
 router.get('/main/production', getAllProduction);
 router.post('/main/note', getAllNote);
 router.get('/main/note', getAllNote);
+router.post('/main/artical', getAllArtical);
+router.get('/main/artical', getAllArtical);
 router.post('/main/topic', getAllTopic);
 router.get('/main/topic', getAllTopic);
 router.post('/search/production', searchProduction);
 router.post('/search/note', searchNote);
+router.post('/search/artical', searchArtical);
 router.get('/personal/administrator/manageBusiness', manageBusiness);
 router.get('/personal/administrator/manageTourist', manageTourist);
 router.put('/personal/administrator/deleteTourist', deleteTourist);
@@ -111,5 +119,8 @@ router.get('/personal/tourist/recommend', recommend);
 router.get('/personal/tourist/analysis', analysis);
 router.get('/personal/business/analysis/collection', businessAnalysisCollection);
 router.get('/personal/business/analysis/order', businessAnalysisOrder);
+router.post('/personal/administrator/publish/artical', addArtical);
+router.get('/personal/administrator/manage/artical', manageArtical);
+router.put('/personal/administrator/delete/artical', deleteArtical);
 
 module.exports = router;

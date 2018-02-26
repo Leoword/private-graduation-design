@@ -8,6 +8,7 @@ import Production from './production.vue';
 import ProductionDetail from './production-detail.vue';
 import Search from './search.vue';
 import Note from './note.vue';
+import Artical from './artical.vue';
 import NoteDetail from './note-detail.vue';
 import Topic from './topic.vue';
 import TopicDetail from './topic-detail.vue';
@@ -31,6 +32,10 @@ export default new Router({
 		{
 			path: '/note',
 			component: Note
+		},
+		{
+			path: '/artical',
+			component: Artical
 		},
 		{
 			path: '/topic',
